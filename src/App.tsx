@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useMemo } from 'react'
+import './App.css'
 
 function App() {
 
@@ -48,8 +49,8 @@ function App() {
   }
 
   return (
-    <>
-      {/* use && to only display selectUser if there is one */}
+    <div className="content">
+      {/*  use && to only display selectUser if there is one */}
       <h2>Selected User: {selectedUser && `${selectedUser.name} - ${selectedUser.age}`} </h2>
       <h2>Users:</h2>
         {users.map(user => {
@@ -65,12 +66,12 @@ function App() {
               marginBottom: '10px'
             }}
           >
-            <p>{user.name} is {user.age} years old. Id: {user.id}</p>
+            <p>{user.name} is {user.age} years old. Pet: {user.pet}</p>
             <button onClick={() => incrementAge(user.id)}>Increment Age</button>
             <button onClick={() => selectUser(user.id)}>Select</button>
           </div>
         )})}
-    </>
+    </div>
   )
 }
 
