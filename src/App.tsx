@@ -49,12 +49,15 @@ function App() {
 
   return (
     <>
-      <h2>Selected User: {selectedUser == undefined ? '' : `${selectedUser?.name} - ${selectedUser?.age}`} </h2>
+      {/* use && to only display selectUser if there is one */}
+      <h2>Selected User: {selectedUser && `${selectedUser.name} - ${selectedUser.age}`} </h2>
       <h2>Users:</h2>
         {users.map(user => {
           return(
           <div 
             key={user.id}
+            // use an object to set style attributes
+            // convert property names to camelCase 
             style={{
               display: 'grid',
               gridTemplateColumns: '3fr 2fr 1fr',
