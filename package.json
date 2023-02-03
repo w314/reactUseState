@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https:\\w314.github.io\reactUseStateExample",
+  "homepage": "https://w314.github.io/reactUseStateExample",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
