@@ -32,7 +32,6 @@ function App() {
   
 
   function selectUser(userId: number) {
-    console.log(`User id ${userId}`)
     setSelectedUserId(userId)
   }
 
@@ -51,7 +50,7 @@ function App() {
   return (
     <div className="content">
       {/*  use && to only display selectUser if there is one */}
-      <h2>Selected User: {selectedUser && `${selectedUser.name} - ${selectedUser.age}`} </h2>
+      <h2>Selected User: {selectedUser && `${selectedUser.name} : ${selectedUser.age} years old`} </h2>
       <h2>Users:</h2>
         {users.map(user => {
           return(
