@@ -1,8 +1,16 @@
 import { useState } from 'react'
 import { useMemo } from 'react'
 import './App.css'
+import styled from '@emotion/styled'
 
 function App() {
+
+  
+  const [users, setUsers] = useState([
+    { id: 1, name: 'Bob', age: 3, pet: 'iguana' },
+    { id: 2, name: 'Bobek', age: 2, pet: 'rabbit' }
+  ])
+  const [selectedUserId, setSelectedUserId] = useState<number | null>(null)
 
   interface User {
     id: number,
@@ -11,11 +19,12 @@ function App() {
     pet: string
   }
 
-  const [users, setUsers] = useState([
-    { id: 1, name: 'Bob', age: 3, pet: 'iguana' },
-    { id: 2, name: 'Bobek', age: 2, pet: 'rabbit' }
-  ])
-  const [selectedUserId, setSelectedUserId] = useState<number | null>(null)
+  // use styled component
+  const GreenTextWhenHovered = styled.p`
+    &:hover {
+      color: green;
+    }
+  `
 
   // USE MEMO //
   /* 
@@ -48,7 +57,7 @@ function App() {
   }
 
   return (
-    <div className="content">
+    <div>
       {/*  use && to only display selectUser if there is one */}
       <h2>Selected User: {selectedUser && `${selectedUser.name} - ${selectedUser.age} years old`} </h2>
       <h2>Users:</h2>
@@ -65,7 +74,7 @@ function App() {
               marginBottom: '10px'
             }}
           >
-            <p>{user.name} is {user.age} years old. Pet: {user.pet}</p>
+            <GreenTextWhenHovered>{user.name} is {user.age} years old. Pet: {user.pet}</GreenTextWhenHovered>
             <button onClick={() => incrementAge(user.id)}>Increment Age</button>
             <button onClick={() => selectUser(user.id)}>Select</button>
           </div>
